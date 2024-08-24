@@ -25,6 +25,16 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Update version in version.json
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          echo "{\"version\": \"${VERSION}\"}" > version.json
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add version.json
+          git commit -m "Update version to ${VERSION}"
+          git push
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
