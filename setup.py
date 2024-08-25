@@ -2,6 +2,7 @@ import json
 from setuptools import setup, find_packages
 
 # Load the version from version.json
+# Note that version.json is added only in the context of the GH action release workflow
 with open('version.json', 'r') as f:
     version_json = json.load(f)
     version = version_json['version']
