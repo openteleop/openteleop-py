@@ -1,20 +1,7 @@
-import json
 from setuptools import setup, find_packages
-
-#Debugging
-import os
-print("Current working directory:", os.getcwd())
-print("Contents of current directory:", os.listdir())
-
-# Load the version from version.json
-# Note that version.json is added only in the context of the GH action release workflow
-with open('version.json', 'r') as f:
-    version_json = json.load(f)
-    version = version_json['version']
 
 setup(
     name="openteleop",
-    version=version,
     packages=find_packages(),
     description="Python SDK for OpenTeleop",
     long_description=open('README.md').read(),

@@ -27,12 +27,6 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Create version.json
-        run: |
-          VERSION=${GITHUB_REF#refs/tags/}
-          echo "{\"version\": \"${VERSION}\"}" > version.json
-          cat version.json
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
